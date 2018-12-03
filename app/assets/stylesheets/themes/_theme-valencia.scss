@@ -1,0 +1,41 @@
+.theme-valencia {
+
+  // If $color_people var is not defined, get default one
+  $colors: if(variable_exists(color_people), $color_people, $color_main);
+  $colors_light: if(variable_exists(color_people_light), $color_people_light, $color_main);
+  $colors_lightest: if(variable_exists(color_people_lightest), $color_people_lightest, $color_main);
+  // functions
+  @function color($i: 1, $set: $colors) {
+    @return if($i > length($set), nth($set, 1), nth($set, $i));
+  }
+
+  // defaults
+  a:not(.no-link) {
+    color: $color_link;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  body {
+    background-color: red;
+  }
+
+  a.no-link:hover {
+    text-decoration: none !important;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  figure:only-child {
+    margin-bottom: 60px;
+  }
+
+  .alert {
+    padding: 5px 10px;
+  }
+}
