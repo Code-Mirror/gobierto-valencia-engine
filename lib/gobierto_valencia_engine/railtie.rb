@@ -12,6 +12,7 @@ else
         conf.assets.paths += [File.join(base_path, "app/assets/stylesheets"), File.join(base_path, "app/assets/images")]
         conf.engine_sass_config_overrides += ["themes/conf/_theme-valencia-conf"]
         conf.engine_sass_theme_dependencies += ["themes/_theme-valencia"]
+        config.gobierto_engines_themes["gobierto-valencia-engine"] = "theme-valencia"
       end
       Webpacker::Compiler.watched_paths << "app/javascript/valencia/**/*.js"
     end
