@@ -15,6 +15,9 @@ else
         config.gobierto_engines_themes["gobierto-valencia-engine"] = "theme-valencia"
       end
       Webpacker::Compiler.watched_paths << "app/javascript/valencia/**/*.js"
+
+      ::ActionMailer::Base.add_delivery_method :webservice, GobiertoValenciaEngine::ActionMailer::Base,
+        wsdl: ENV["MAIL_WEBSERVICE_ADDRESS"]
     end
   end
 end
