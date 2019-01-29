@@ -16,6 +16,8 @@ else
       end
       Webpacker::Compiler.watched_paths << "app/javascript/valencia/**/*.js"
 
+      # Configure webservice delivery
+      Rails.application.config.action_mailer.delivery_method = :webservice
       ::ActionMailer::Base.add_delivery_method :webservice, GobiertoValenciaEngine::ActionMailer::Base,
         wsdl: ENV["MAIL_WEBSERVICE_ADDRESS"]
     end
