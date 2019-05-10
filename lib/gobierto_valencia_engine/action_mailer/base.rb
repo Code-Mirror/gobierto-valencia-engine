@@ -40,7 +40,9 @@ class GobiertoValenciaEngine
         <not1:Subject>#{mail.subject}</not1:Subject>
         <not1:Content>
           <not1:MimeType>text/html</not1:MimeType>
-          <not1:ContentBody>#{::ActionController::Base.helpers.strip_tags(mail.body.to_s)}</not1:ContentBody>
+          <not1:ContentBody><![CDATA[
+          #{mail.body}
+          ]]></not1:ContentBody>
           <not1:ContentEncoding>UTF-8</not1:ContentEncoding>
         </not1:Content>
         <not1:NotificationContext></not1:NotificationContext>
